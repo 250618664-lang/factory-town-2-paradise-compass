@@ -1,0 +1,177 @@
+---
+import Base from '../layouts/Base.astro';
+import NativeAdSlot from '../components/NativeAdSlot.astro';
+const lastChecked = '2026-07-12';
+---
+
+<Base
+  title="Campaign vs Custom Maps"
+  description="Compare the confirmed campaign/tutorial and custom map modes in Factory Town 2: Paradise using official statements only."
+  breadcrumbs={[
+    { label: 'Home', href: '/' },
+    { label: 'Campaign vs Custom Maps' },
+  ]}
+>
+  <div class="hero-grid">
+    <div class="panel hero">
+      <span class="eyebrow"><span class="dot warn"></span> PARTIAL — Evidence Boundary</span>
+      <h1>Campaign vs<br/>Custom Maps</h1>
+
+      <!-- V2 Quick Answer -->
+      <div class="answer-strip">
+        <div class="answer-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-3)" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <div>
+          <strong>Both modes are officially confirmed</strong>
+          <span>Campaign includes guided tutorial; Custom Maps include randomized terrain and resources. Specific settings and unlock details are not verified.</span>
+        </div>
+      </div>
+
+      <NativeAdSlot />
+
+      <!-- V2 Comparison matrix — primary structured module -->
+      <h2 style="font-size: 16px; margin-top: 20px; margin-bottom: 10px;">Mode Comparison</h2>
+      <table class="matrix-table">
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>Campaign / Tutorial</th>
+            <th>Custom Maps</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Guided progression</td>
+            <td><span class="status-badge confirmed">Confirmed</span></td>
+            <td><span class="status-badge hold">Not confirmed</span></td>
+          </tr>
+          <tr>
+            <td>Randomized terrain</td>
+            <td><span class="status-badge hold">Not confirmed</span></td>
+            <td><span class="status-badge confirmed">Confirmed</span></td>
+          </tr>
+          <tr>
+            <td>Randomized resources</td>
+            <td><span class="status-badge hold">Not confirmed</span></td>
+            <td><span class="status-badge confirmed">Confirmed</span></td>
+          </tr>
+          <tr>
+            <td>Free open building</td>
+            <td><span class="status-badge hold">Unconfirmed</span></td>
+            <td><span class="status-badge hold">Unconfirmed</span></td>
+          </tr>
+          <tr>
+            <td>Exact map count</td>
+            <td><span class="status-badge hold">Unverified</span></td>
+            <td><span class="status-badge hold">Unverified</span></td>
+          </tr>
+          <tr>
+            <td>Unlock requirements</td>
+            <td><span class="status-badge hold">Unverified</span></td>
+            <td><span class="status-badge hold">Unverified</span></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="partial-callout" style="margin-top: 16px;">
+        <strong>This page is PARTIAL</strong>
+        <p>Only the existence and high-level description of both modes are confirmed. Specific settings, map seeds, unlock requirements, and progression details are not verified here.</p>
+        <p style="margin-top: 6px;">Last checked: {lastChecked} · Source: store.steampowered.com (ft2-progress-001)</p>
+      </div>
+    </div>
+
+    <aside class="panel side">
+      <h2>Source</h2>
+      <div class="source-card">
+        <h3>Official Source</h3>
+        <div class="source-row">
+          <strong>Claim ID</strong>
+          <span>ft2-progress-001</span>
+        </div>
+        <div class="source-row">
+          <strong>Fact</strong>
+          <span>Campaign/tutorial + custom maps with randomized terrain/resources</span>
+        </div>
+        <div class="source-row">
+          <strong>Source</strong>
+          <span>store.steampowered.com</span>
+        </div>
+        <div class="source-row">
+          <strong>Last checked</strong>
+          <span>{lastChecked}</span>
+        </div>
+        <div class="source-row">
+          <strong>Status</strong>
+          <span>Confirmed — category only</span>
+        </div>
+      </div>
+
+      <div class="mini" style="margin-top: 14px;">
+        <h3>Which should I start with?</h3>
+        <p>This site does not recommend gameplay choices. Both options exist officially — try the demo to see which fits your play style.</p>
+      </div>
+
+      <div class="mini" style="margin-top: 10px;">
+        <h3>Related pages</h3>
+        <p><a href="/getting-started-checklist/" style="color: var(--accent-3);">→ First-Time Checklist</a></p>
+        <p><a href="/demo-guide/" style="color: var(--accent-3);">→ Demo Guide</a></p>
+        <p><a href="/faq/" style="color: var(--accent-3);">→ FAQ</a></p>
+      </div>
+    </aside>
+  </div>
+
+  <!-- V2 FAQ — 4 FAQs -->
+  <section class="panel section">
+    <h2>Frequently Asked Questions</h2>
+    <div style="margin-top: 14px; display: grid; gap: 12px;">
+      <div>
+        <h3 style="font-size: 15px; margin-bottom: 4px;">What is the Campaign mode in Factory Town 2?</h3>
+        <p>The official Steam description confirms Campaign includes a guided tutorial. Specific missions, steps, or progression details are not verified on this site.</p>
+      </div>
+      <div>
+        <h3 style="font-size: 15px; margin-bottom: 4px;">What are Custom Maps?</h3>
+        <p>Custom Maps are confirmed to include randomized terrain and resources. The specific settings, map count, or customization options are not verified here.</p>
+      </div>
+      <div>
+        <h3 style="font-size: 15px; margin-bottom: 4px;">Which mode should I start with?</h3>
+        <p>This site does not make gameplay recommendations. Try the demo to experience both modes before committing to a starting choice.</p>
+      </div>
+      <div>
+        <h3 style="font-size: 15px; margin-bottom: 4px;">Can I switch between modes mid-game?</h3>
+        <p>Whether progress or saves transfer between Campaign and Custom Maps is not confirmed on this site.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- V2 Related Guides -->
+  <section class="panel section">
+    <h2>Related Guides</h2>
+    <div class="link-list" style="margin-top: 14px;">
+      <a class="link-item" href="/getting-started-checklist/">
+        <div class="link-icon">✅</div>
+        <div>
+          <strong>First-Time Player Checklist</strong>
+          <p>Verified access and mode-selection steps.</p>
+        </div>
+        <span class="link-badge warn">Partial</span>
+      </a>
+      <a class="link-item" href="/demo-guide/">
+        <div class="link-icon">▶️</div>
+        <div>
+          <strong>Demo Guide: What Is Confirmed</strong>
+          <p>Demo availability and confirmed boundary.</p>
+        </div>
+        <span class="link-badge warn">Partial</span>
+      </a>
+      <a class="link-item" href="/faq/">
+        <div class="link-icon">❓</div>
+        <div>
+          <strong>FAQ</strong>
+          <p>Direct answers to launch and mode questions.</p>
+        </div>
+        <span class="link-badge good">Confirmed</span>
+      </a>
+    </div>
+  </section>
+</Base>

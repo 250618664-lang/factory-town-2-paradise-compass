@@ -1,0 +1,202 @@
+---
+import Base from '../layouts/Base.astro';
+import NativeAdSlot from '../components/NativeAdSlot.astro';
+const lastChecked = '2026-07-12';
+
+// Transport system categories — confirmed from ft2-logistics-001
+const transportCategories = [
+  { name: 'Roads & Bridges', note: 'Ground-level transport paths — confirmed category only.' },
+  { name: 'Conveyor Belts', note: 'Automated item transport — confirmed category only.' },
+  { name: 'Trains', note: 'Rail-based transport — confirmed category only.' },
+  { name: 'Boats', note: 'Water-based transport — confirmed category only.' },
+  { name: 'Zip Lines', note: 'Aerial transport lines — confirmed category only.' },
+  { name: 'Catapults', note: 'Launch-based transport — confirmed category only.' },
+];
+
+// Transport decision checklist — no performance claims
+const checklistItems = [
+  {
+    q: 'Are you moving goods or villagers?',
+    a: 'Which transport category supports which cargo type is not confirmed here.',
+    status: 'hold',
+  },
+  {
+    q: 'Short distance or cross-island?',
+    a: 'Which transport works for short vs. long distances is not confirmed here.',
+    status: 'hold',
+  },
+  {
+    q: 'Do you need automation or manual triggering?',
+    a: 'Which transport categories can be automated vs. player-triggered is not confirmed here.',
+    status: 'hold',
+  },
+  {
+    q: 'Do you need to cross water?',
+    a: 'Boats are a confirmed water-transport category — specific mechanics are not confirmed.',
+    status: 'confirmed',
+  },
+];
+---
+
+<Base
+  title="Logistics and Transport Systems"
+  description="Confirmed Factory Town 2 transport system categories — roads, bridges, trains, belts, boats, catapults, zip lines — and a decision checklist with no performance claims."
+  breadcrumbs={[
+    { label: 'Home', href: '/' },
+    { label: 'Logistics and Transport Systems' },
+  ]}
+>
+  <div class="hero-grid">
+    <div class="panel hero">
+      <span class="eyebrow"><span class="dot warn"></span> PARTIAL — Evidence Boundary</span>
+      <h1>Logistics and<br/>Transport Systems</h1>
+
+      <!-- V2 Quick Answer — within first 100 words -->
+      <div class="answer-strip">
+        <div class="answer-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-3)" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        </div>
+        <div>
+          <strong>7 confirmed transport categories</strong>
+          <span>Roads, bridges, trains, belts, boats, catapults, zip lines — no per-category performance, cost, or layout claims are made on this site.</span>
+        </div>
+      </div>
+
+      <NativeAdSlot />
+
+      <!-- V2 ConfirmedFacts table — primary structured module -->
+      <h2 style="font-size: 16px; margin-top: 20px; margin-bottom: 10px;">Confirmed Transport Categories</h2>
+      <table class="matrix-table">
+        <thead>
+          <tr>
+            <th>Category</th>
+            <th>Note</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          {transportCategories.map(cat => (
+            <tr>
+              <td><strong>{cat.name}</strong></td>
+              <td>{cat.note}</td>
+              <td><span class="status-badge confirmed">Confirmed</span></td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+
+      <div class="partial-callout" style="margin-top: 16px;">
+        <strong>This page is PARTIAL</strong>
+        <p>Only the existence of these transport categories is confirmed from official sources. Specific mechanics, costs, distances, wiring, placement, automation behavior, or particular configurations are not verified here.</p>
+        <p style="margin-top: 6px;">Last checked: {lastChecked} · Source: official Steam listing (ft2-logistics-001)</p>
+      </div>
+    </div>
+
+    <aside class="panel side">
+      <h2>Transport Decision Checklist</h2>
+      <p style="font-size: 13px; color: var(--muted); margin-top: 8px;">Answer these questions to find which transport category fits your need — based only on confirmed categories, with no performance or layout claims.</p>
+
+      <div class="check-list" style="margin-top: 14px;">
+        {checklistItems.map((item) => (
+          <div class={`check-item ${item.status}`}>
+            <div class="check-num">{item.status === 'confirmed' ? '✓' : '?'}</div>
+            <div class="check-text">
+              <strong>{item.q}</strong>
+              <p>{item.a}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div class="mini" style="margin-top: 14px;">
+        <h3>Source</h3>
+        <div class="source-row">
+          <strong>Claim</strong>
+          <span>ft2-logistics-001</span>
+        </div>
+        <div class="source-row">
+          <strong>Checked</strong>
+          <span>{lastChecked}</span>
+        </div>
+        <div class="source-row">
+          <strong>Status</strong>
+          <span>Category confirmed only</span>
+        </div>
+      </div>
+
+      <div class="mini" style="margin-top: 10px;">
+        <h3>Related pages</h3>
+        <p><a href="/power-and-water-systems/" style="color: var(--accent-3);">→ Power &amp; Water</a></p>
+        <p><a href="/recipe-book-and-volcano-rewards/" style="color: var(--accent-3);">→ Recipe Book</a></p>
+        <p><a href="/faq/" style="color: var(--accent-3);">→ FAQ</a></p>
+        <p><a href="/patch-notes/" style="color: var(--accent-3);">→ Patch Notes</a></p>
+      </div>
+    </aside>
+  </div>
+
+  <!-- V2 FAQ — 5 FAQs -->
+  <section class="panel section">
+    <h2>Frequently Asked Questions</h2>
+    <div style="margin-top: 14px; display: grid; gap: 12px;">
+      <div>
+        <h3 style="font-size: 15px; margin-bottom: 4px;">What transport systems are confirmed in Factory Town 2?</h3>
+        <p><strong style="color: var(--good);">Seven categories are confirmed:</strong> roads, bridges, conveyor belts, trains, boats, catapults, and zip lines — from the official Steam description.</p>
+      </div>
+      <div>
+        <h3 style="font-size: 15px; margin-bottom: 4px;">Which transport should I use for long distances?</h3>
+        <p>No specific transport choice, distance threshold, or performance comparison is confirmed on this site. Check the official Steam description or the demo for current behavior.</p>
+      </div>
+      <div>
+        <h3 style="font-size: 15px; margin-bottom: 4px;">Can I automate transport in Factory Town 2?</h3>
+        <p>The official description confirms transport categories exist but specific automation behavior is not verified here. This information requires a current hands-on check or official source update.</p>
+      </div>
+      <div>
+        <h3 style="font-size: 15px; margin-bottom: 4px;">Are there trains or boats in the game?</h3>
+        <p><strong style="color: var(--good);">Yes.</strong> Trains and boats are confirmed transport categories from the official Steam description. Specific mechanics are not confirmed.</p>
+      </div>
+      <div>
+        <h3 style="font-size: 15px; margin-bottom: 4px;">Does this site recommend specific transport layouts?</h3>
+        <p>No. No layout, named route, production chain, or ranked list is ever published on this site. All such claims from third-party sources are unverified.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- V2 Related Guides — 4 -->
+  <section class="panel section">
+    <h2>Related Guides</h2>
+    <div class="link-list" style="margin-top: 14px;">
+      <a class="link-item" href="/power-and-water-systems/">
+        <div class="link-icon">⚡</div>
+        <div>
+          <strong>Power and Water Systems</strong>
+          <p>Confirmed energy and water system categories.</p>
+        </div>
+        <span class="link-badge warn">Partial</span>
+      </a>
+      <a class="link-item" href="/recipe-book-and-volcano-rewards/">
+        <div class="link-icon">📖</div>
+        <div>
+          <strong>Recipe Book &amp; Volcano Rewards</strong>
+          <p>Recipe Book and Reward Point concept.</p>
+        </div>
+        <span class="link-badge warn">Partial</span>
+      </a>
+      <a class="link-item" href="/patch-notes/">
+        <div class="link-icon">📡</div>
+        <div>
+          <strong>Patch Notes and Official Updates</strong>
+          <p>Verified update timeline linked to the official Steam update hub.</p>
+        </div>
+        <span class="link-badge good">Confirmed</span>
+      </a>
+      <a class="link-item" href="/faq/">
+        <div class="link-icon">❓</div>
+        <div>
+          <strong>FAQ</strong>
+          <p>Direct answers to launch and system questions.</p>
+        </div>
+        <span class="link-badge good">Confirmed</span>
+      </a>
+    </div>
+  </section>
+</Base>

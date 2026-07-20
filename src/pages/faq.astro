@@ -1,0 +1,146 @@
+---
+import Base from '../layouts/Base.astro';
+import NativeAdSlot from '../components/NativeAdSlot.astro';
+const lastChecked = '2026-07-20';
+---
+
+<Base
+  title="FAQ"
+  description="Direct answers to Factory Town 2 launch, demo, and mode questions — sourced from official facts or marked as unconfirmed."
+  breadcrumbs={[
+    { label: 'Home', href: '/' },
+    { label: 'FAQ' },
+  ]}
+>
+  <div class="hero-grid">
+    <div class="panel hero">
+      <span class="eyebrow"><span class="dot"></span> Sourced Answers</span>
+      <h1>Frequently Asked<br/>Questions</h1>
+
+      <!-- V2 Quick Answer -->
+      <div class="answer-strip">
+        <div class="answer-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-3)" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        </div>
+        <div>
+          <strong>Answered from confirmed official sources or marked unconfirmed</strong>
+          <span>No speculative answers are given. Each answer cites a source or explicitly states it is not confirmed. Last reviewed: {lastChecked}.</span>
+        </div>
+      </div>
+
+      <NativeAdSlot />
+
+      <!-- V2 FAQ list — 8 FAQs, primary module -->
+      <div style="margin-top: 24px; display: grid; gap: 14px;">
+        <div>
+          <h3 style="font-size: 16px; margin-bottom: 6px;">When did Factory Town 2: Paradise launch?</h3>
+          <p><strong style="color: var(--good);">July 14, 2026</strong> — Steam Early Access. Confirmed from the official Steam listing (ft2-release-live-20260720).</p>
+        </div>
+        <div>
+          <h3 style="font-size: 16px; margin-bottom: 6px;">Is there a demo?</h3>
+          <p><strong style="color: var(--good);">Yes.</strong> A Steam demo is available. Confirmed from the official Steam listing (ft2-demo-live-20260720).</p>
+        </div>
+        <div>
+          <h3 style="font-size: 16px; margin-bottom: 6px;">What game modes are available?</h3>
+          <p><strong style="color: var(--good);">Campaign and Custom Maps.</strong> The official description confirms a guided campaign/tutorial plus custom maps with randomized terrain and resources (ft2-progress-001).</p>
+        </div>
+        <div>
+          <h3 style="font-size: 16px; margin-bottom: 6px;">What transport systems exist?</h3>
+          <p><strong style="color: var(--good);">Roads, bridges, trains, belts, boats, catapults, and zip lines.</strong> All confirmed from the official Steam description (ft2-logistics-001). Specific mechanics are not confirmed.</p>
+        </div>
+        <div>
+          <h3 style="font-size: 16px; margin-bottom: 6px;">What power and water systems exist?</h3>
+          <p><strong style="color: var(--good);">Water, waterwheels, windmills, drive shafts, generators, and power lines.</strong> All confirmed from the official Steam description (ft2-power-water-001). Specific mechanics are not confirmed.</p>
+        </div>
+        <div>
+          <h3 style="font-size: 16px; margin-bottom: 6px;">Is there a recipe or progression system?</h3>
+          <p><strong style="color: var(--good);">Yes.</strong> The Recipe Book and Reward Point / Volcano Reward system is an official progression concept (ft2-recipe-book-001). Specific recipes are not confirmed.</p>
+        </div>
+        <div>
+          <h3 style="font-size: 16px; margin-bottom: 6px;">Where do I find official updates?</h3>
+          <p><strong style="color: var(--good);">The official Steam Community hub.</strong> Patch 127–129 entries use the registered official hub source (ft2-steam-community-patches-20260720). Check the <a href="/patch-notes/">Patch Notes page</a> for summaries and the source hub.</p>
+        </div>
+        <div>
+          <h3 style="font-size: 16px; margin-bottom: 6px;">Can I play with friends / is there multiplayer?</h3>
+          <p><strong style="color: var(--muted);">Not confirmed on this site.</strong> Multiplayer or co-op features have not been verified from official sources here. Check the official Steam description directly.</p>
+        </div>
+        <div>
+          <h3 style="font-size: 16px; margin-bottom: 6px;">What starting strategies are confirmed?</h3>
+          <p><strong style="color: var(--bad);">None confirmed.</strong> Named start strategies, specific layouts, or ranked tier lists are not verified on this site.</p>
+        </div>
+        <div>
+          <h3 style="font-size: 16px; margin-bottom: 6px;">Are there active codes or promotions?</h3>
+          <p><strong style="color: var(--bad);">Not confirmed.</strong> Active codes, promotional offers, and in-game events are not verified on this site.</p>
+        </div>
+        <div>
+          <h3 style="font-size: 16px; margin-bottom: 6px;">Is this site official?</h3>
+          <p><strong>No.</strong> This is an unofficial player helper, not affiliated with the developers of Factory Town 2: Paradise. It uses only publicly available official sources for facts.</p>
+        </div>
+      </div>
+    </div>
+
+    <aside class="panel side">
+      <h2>Not Yet Confirmed</h2>
+      <p style="font-size: 13px; color: var(--muted); margin-top: 8px;">These common questions have not been answered because official sources do not yet confirm them:</p>
+
+      <div class="cannot-card" style="margin-top: 14px;">
+        <h3>Not yet confirmed</h3>
+        <ul>
+          <li>Specific control schemes or keybinds</li>
+          <li>Specific recipe lists or crafting costs</li>
+          <li>Power ratios or water flow rates</li>
+          <li>Multiplayer or co-op support</li>
+          <li>PC system requirements</li>
+          <li>Exact pricing or editions</li>
+          <li>Achievement or unlock details</li>
+          <li>Save file locations or cloud sync</li>
+        </ul>
+      </div>
+
+      <div class="mini" style="margin-top: 14px;">
+        <h3>How to verify yourself</h3>
+        <p>Visit the official Steam page directly for the most current confirmed information:</p>
+        <p><a href="https://store.steampowered.com/app/3312130/Factory_Town_2_Paradise/" target="_blank" rel="noopener" style="color: var(--accent-3);">→ Official Steam Page</a></p>
+      </div>
+
+      <div class="mini" style="margin-top: 10px;">
+        <h3>Related pages</h3>
+        <p><a href="/release-date-and-early-access/" style="color: var(--accent-3);">→ Release Status</a></p>
+        <p><a href="/demo-guide/" style="color: var(--accent-3);">→ Demo Guide</a></p>
+        <p><a href="/campaign-vs-custom-maps/" style="color: var(--accent-3);">→ Campaign vs Custom Maps</a></p>
+        <p><a href="/patch-notes/" style="color: var(--accent-3);">→ Patch Notes</a></p>
+      </div>
+    </aside>
+  </div>
+
+  <!-- V2 Related Guides -->
+  <section class="panel section">
+    <h2>Related Guides</h2>
+    <div class="link-list" style="margin-top: 14px;">
+      <a class="link-item" href="/release-date-and-early-access/">
+        <div class="link-icon">📅</div>
+        <div>
+          <strong>Release Date &amp; Early Access Status</strong>
+          <p>Confirmed launch date and current availability.</p>
+        </div>
+        <span class="link-badge good">Confirmed</span>
+      </a>
+      <a class="link-item" href="/logistics-and-transport/">
+        <div class="link-icon">🚂</div>
+        <div>
+          <strong>Logistics and Transport Systems</strong>
+          <p>Confirmed transport categories.</p>
+        </div>
+        <span class="link-badge warn">Partial</span>
+      </a>
+      <a class="link-item" href="/patch-notes/">
+        <div class="link-icon">📡</div>
+        <div>
+          <strong>Patch Notes and Official Updates</strong>
+          <p>Verified update timeline linked to the official Steam update hub.</p>
+        </div>
+        <span class="link-badge good">Confirmed</span>
+      </a>
+    </div>
+  </section>
+</Base>

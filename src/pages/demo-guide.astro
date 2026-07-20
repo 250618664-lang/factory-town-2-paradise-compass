@@ -1,0 +1,170 @@
+---
+import Base from '../layouts/Base.astro';
+import NativeAdSlot from '../components/NativeAdSlot.astro';
+const lastChecked = '2026-07-20';
+---
+
+<Base
+  title="Demo Guide: What Is Confirmed"
+  description="What is officially confirmed about the Factory Town 2: Paradise Steam demo — availability and confirmed boundary."
+  breadcrumbs={[
+    { label: 'Home', href: '/' },
+    { label: 'Demo Guide: What Is Confirmed' },
+  ]}
+>
+  <div class="hero-grid">
+    <div class="panel hero">
+      <span class="eyebrow"><span class="dot warn"></span> PARTIAL — Evidence Boundary</span>
+      <h1>Demo Guide:<br/>What Is Confirmed</h1>
+
+      <!-- V2 Quick Answer -->
+      <div class="answer-strip">
+        <div class="answer-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-3)" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        </div>
+        <div>
+          <strong>Steam demo is available</strong>
+          <span>The demo exists on Steam. Specific content, missions, duration, progress carryover, and mechanics are not verified on this site.</span>
+        </div>
+      </div>
+
+      <NativeAdSlot />
+
+      <!-- V2 ConfirmedFacts checklist -->
+      <div class="check-list" style="margin-top: 20px;">
+        <div class="check-item done">
+          <div class="check-num">✓</div>
+          <div class="check-text">
+            <strong>Steam demo exists and is accessible</strong>
+            <p>Confirmed from the official Steam store page listing.</p>
+          </div>
+          <span class="check-badge good">Confirmed</span>
+        </div>
+        <div class="check-item hold">
+          <div class="check-num">?</div>
+          <div class="check-text">
+            <strong>Demo content and missions</strong>
+            <p>Specific demo content, included missions, or specific steps are not confirmed on this site.</p>
+          </div>
+          <span class="check-badge warn">Unconfirmed</span>
+        </div>
+        <div class="check-item hold">
+          <div class="check-num">?</div>
+          <div class="check-text">
+            <strong>Demo duration or completion time</strong>
+            <p>No verified estimate for how long the demo takes.</p>
+          </div>
+          <span class="check-badge warn">Unconfirmed</span>
+        </div>
+        <div class="check-item hold">
+          <div class="check-num">?</div>
+          <div class="check-text">
+            <strong>Progress or save carryover</strong>
+            <p>Whether demo progress carries to the full game is not confirmed here.</p>
+          </div>
+          <span class="check-badge warn">Unconfirmed</span>
+        </div>
+      </div>
+
+      <div class="partial-callout" style="margin-top: 16px;">
+        <strong>This page is PARTIAL</strong>
+        <p>Only the existence of the demo is confirmed from official sources. Detailed content, mechanics, missions, and any carryover behavior require a current hands-on check or official source update.</p>
+        <p style="margin-top: 6px;">Last checked: {lastChecked} · Source: store.steampowered.com (ft2-demo-live-20260720)</p>
+      </div>
+    </div>
+
+    <aside class="panel side">
+      <h2>Source</h2>
+      <div class="source-card">
+        <h3>Official Source</h3>
+        <div class="source-row">
+          <strong>Claim ID</strong>
+          <span>ft2-demo-live-20260720</span>
+        </div>
+        <div class="source-row">
+          <strong>Fact</strong>
+          <span>Steam demo is available.</span>
+        </div>
+        <div class="source-row">
+          <strong>Source</strong>
+          <span>store.steampowered.com</span>
+        </div>
+        <div class="source-row">
+          <strong>Last checked</strong>
+          <span>{lastChecked}</span>
+        </div>
+        <div class="source-row">
+          <strong>Status</strong>
+          <span>Partial — demo exists only</span>
+        </div>
+      </div>
+
+      <div class="mini" style="margin-top: 14px;">
+        <h3>Action</h3>
+        <p>Download the demo directly from the official Steam store page to see its current content for yourself.</p>
+        <p><a href="https://store.steampowered.com/app/3312130/Factory_Town_2_Paradise/" target="_blank" rel="noopener" style="color: var(--accent-3);">→ Steam Store Page</a></p>
+      </div>
+
+      <div class="mini" style="margin-top: 10px;">
+        <h3>Related pages</h3>
+        <p><a href="/release-date-and-early-access/" style="color: var(--accent-3);">→ Release Status</a></p>
+        <p><a href="/campaign-vs-custom-maps/" style="color: var(--accent-3);">→ Campaign vs Custom Maps</a></p>
+        <p><a href="/getting-started-checklist/" style="color: var(--accent-3);">→ First-Time Checklist</a></p>
+      </div>
+    </aside>
+  </div>
+
+  <!-- V2 FAQ — 4 FAQs -->
+  <section class="panel section">
+    <h2>Frequently Asked Questions</h2>
+    <div style="margin-top: 14px; display: grid; gap: 12px;">
+      <div>
+        <h3 style="font-size: 15px; margin-bottom: 4px;">Is there a free demo for Factory Town 2: Paradise?</h3>
+        <p><strong style="color: var(--good);">Yes.</strong> A Steam demo is available and can be downloaded from the game's official Steam store page.</p>
+      </div>
+      <div>
+        <h3 style="font-size: 15px; margin-bottom: 4px;">What does the demo include?</h3>
+        <p>Specific demo content, missions, and scope are not confirmed on this site. Download the demo from Steam to see its current content firsthand.</p>
+      </div>
+      <div>
+        <h3 style="font-size: 15px; margin-bottom: 4px;">Does my demo progress carry over to the full game?</h3>
+        <p>Whether demo saves or progress carry over to the full Early Access purchase is not verified on this site. Check the official Steam page or the demo itself for the most current information.</p>
+      </div>
+      <div>
+        <h3 style="font-size: 15px; margin-bottom: 4px;">Can I try both game modes in the demo?</h3>
+        <p>Whether the demo includes Campaign, Custom Maps, or both is not confirmed on this site. Try the demo directly on Steam to find out.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- V2 Related Guides -->
+  <section class="panel section">
+    <h2>Related Guides</h2>
+    <div class="link-list" style="margin-top: 14px;">
+      <a class="link-item" href="/release-date-and-early-access/">
+        <div class="link-icon">📅</div>
+        <div>
+          <strong>Release Date &amp; Early Access Status</strong>
+          <p>Current launch status and availability.</p>
+        </div>
+        <span class="link-badge good">Confirmed</span>
+      </a>
+      <a class="link-item" href="/campaign-vs-custom-maps/">
+        <div class="link-icon">🗺️</div>
+        <div>
+          <strong>Campaign vs Custom Maps</strong>
+          <p>Compare the two confirmed game modes.</p>
+        </div>
+        <span class="link-badge warn">Partial</span>
+      </a>
+      <a class="link-item" href="/getting-started-checklist/">
+        <div class="link-icon">✅</div>
+        <div>
+          <strong>First-Time Player Checklist</strong>
+          <p>Verified access and mode-selection steps.</p>
+        </div>
+        <span class="link-badge warn">Partial</span>
+      </a>
+    </div>
+  </section>
+</Base>

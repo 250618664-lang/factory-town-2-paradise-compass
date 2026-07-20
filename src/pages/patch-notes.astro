@@ -1,0 +1,245 @@
+---
+import Base from '../layouts/Base.astro';
+import NativeAdSlot from '../components/NativeAdSlot.astro';
+const lastChecked = '2026-07-20';
+
+// The official Steam Community hub is the registered source for these entries.
+// Do not describe it as a distinct per-patch detail URL.
+const updates = [
+  {
+    version: 'Patch 129',
+    date: '2026-07-18',
+    summary: 'Improves the getting-started and save flows, text-field behavior, resource generation in several biome shapes, river generation on very flat terrain, and other bugs.',
+    sourceUrl: 'https://steamcommunity.com/app/3312130/?curator_clanid=4777282',
+    sourceId: 'ft2-patch-129-20260720',
+    status: 'confirmed' as const,
+  },
+  {
+    version: 'Patch 128',
+    date: '2026-07-17',
+    summary: 'Adds worker-supply item filters for several storage and delivery buildings, a screen-scale recovery command, trough selection, balance changes, and bug fixes.',
+    sourceUrl: 'https://steamcommunity.com/app/3312130/?curator_clanid=4777282',
+    sourceId: 'ft2-patch-128-20260720',
+    status: 'confirmed' as const,
+  },
+  {
+    version: 'Patch 127',
+    date: '2026-07-14',
+    summary: 'Adds view-mode messaging and an in-progress Italian option, adjusts transfer behavior and interface labels, and fixes production and other bugs.',
+    sourceUrl: 'https://steamcommunity.com/app/3312130/?curator_clanid=4777282',
+    sourceId: 'ft2-patch-127-20260720',
+    status: 'confirmed' as const,
+  },
+];
+
+---
+
+<Base
+  title="Patch Notes and Official Updates"
+  description="Verified update timeline for Factory Town 2: Paradise, linked to the official Steam Community update hub."
+  breadcrumbs={[
+    { label: 'Home', href: '/' },
+    { label: 'Patch Notes and Official Updates' },
+  ]}
+>
+  <div class="hero-grid">
+    <div class="panel hero">
+      <span class="eyebrow"><span class="dot"></span> Official Source Only</span>
+      <h1>Patch Notes &amp;<br/>Official Updates</h1>
+
+      <!-- V2 Quick Answer — within first 100 words -->
+      <div class="answer-strip">
+        <div class="answer-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-3)" stroke-width="2"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-.18-5.49"/></svg>
+        </div>
+        <div>
+          <strong>Factory Town 2 is live on Steam Early Access — Patch 129 is the latest verified update</strong>
+          <span>The game launched July 14, 2026. Official updates are sourced from Steam Community posts only; no third-party patch mirrors are used.</span>
+        </div>
+      </div>
+
+      <NativeAdSlot />
+
+      <!-- V2 UpdateTimeline — primary structured module -->
+      <div class="update-timeline" style="margin-top: 24px;">
+        <h2 style="font-size: 18px; margin-bottom: 14px;">Official Update Timeline</h2>
+        {updates.map(update => (
+          <div class="update-entry">
+            <div class="update-entry-header">
+              <div class="update-entry-meta">
+                <span class="status-badge confirmed">{update.version}</span>
+                <span class="update-date">{update.date}</span>
+              </div>
+              <a
+                href={update.sourceUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="update-source-link"
+              >
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                Official Update Hub
+              </a>
+            </div>
+            <p class="update-summary">{update.summary}</p>
+            <p class="update-source-id">Source: {update.sourceId} · Last checked: {lastChecked}</p>
+          </div>
+        ))}
+      </div>
+
+      <!-- NotConfirmed / boundary section -->
+      <div class="partial-callout" style="margin-top: 20px;">
+        <strong>What this page does NOT publish</strong>
+        <p>No inferred fixes, third-party patch databases, or full patch-note reproduction. Each entry links to the registered official Steam update hub.</p>
+      </div>
+    </div>
+
+    <aside class="panel side">
+      <h2>Source Policy</h2>
+      <div class="source-card">
+        <h3>Update Source</h3>
+        <div class="source-row">
+          <strong>Source type</strong>
+          <span>Steam Community posts only</span>
+        </div>
+        <div class="source-row">
+          <strong>Claim ID</strong>
+          <span>ft2-steam-community-patches-20260720</span>
+        </div>
+        <div class="source-row">
+          <strong>Last checked</strong>
+          <span>{lastChecked}</span>
+        </div>
+        <div class="source-row">
+          <strong>Game status</strong>
+          <span>Early Access live — Patch 129</span>
+        </div>
+      </div>
+
+      <div class="mini" style="margin-top: 14px;">
+        <h3>How updates are recorded</h3>
+        <p>Each entry includes a version label, official hub date, registered source link, and concise original summary. A hub link is not presented as a distinct per-patch URL.</p>
+      </div>
+
+      <div class="mini" style="margin-top: 10px;">
+        <h3>Related pages</h3>
+        <p><a href="/release-date-and-early-access/">→ Release Status</a></p>
+        <p><a href="/faq/">→ FAQ</a></p>
+        <p><a href="/logistics-and-transport/">→ Logistics &amp; Transport</a></p>
+      </div>
+    </aside>
+  </div>
+
+  <!-- V2 FAQ section — 4 FAQs -->
+  <section class="panel section">
+    <h2>Frequently Asked Questions</h2>
+    <div style="margin-top: 14px; display: grid; gap: 12px;">
+      <div>
+        <h3 style="font-size: 15px; margin-bottom: 4px;">How do I find the latest official patch notes?</h3>
+        <p>Visit the <a href="https://steamcommunity.com/app/3312130" target="_blank" rel="noopener">Steam Community page</a> for Factory Town 2: Paradise. All official updates are posted there first.</p>
+      </div>
+      <div>
+        <h3 style="font-size: 15px; margin-bottom: 4px;">Are older patches still available on this site?</h3>
+        <p>This site records a concise summary of each confirmed update. Use the official Steam Community hub for the complete posts.</p>
+      </div>
+      <div>
+        <h3 style="font-size: 15px; margin-bottom: 4px;">Does this site copy full patch note text?</h3>
+        <p>No. Each entry has a concise original summary and a link to the official update hub. Full patch-note text is not reproduced here.</p>
+      </div>
+      <div>
+        <h3 style="font-size: 15px; margin-bottom: 4px;">When was the last update checked?</h3>
+        <p>Content on this page was reviewed against official Steam sources on {lastChecked}. Check the Steam Community page for the most current information.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- V2 Related Guides — 3-6 -->
+  <section class="panel section">
+    <h2>Related Guides</h2>
+    <div class="link-list" style="margin-top: 14px;">
+      <a class="link-item" href="/release-date-and-early-access/">
+        <div class="link-icon">📅</div>
+        <div>
+          <strong>Release Date &amp; Early Access Status</strong>
+          <p>Confirm current availability and launch details.</p>
+        </div>
+        <span class="link-badge good">Confirmed</span>
+      </a>
+      <a class="link-item" href="/logistics-and-transport/">
+        <div class="link-icon">🚂</div>
+        <div>
+          <strong>Logistics and Transport Systems</strong>
+          <p>Confirmed transport categories and decision checklist.</p>
+        </div>
+        <span class="link-badge warn">Partial</span>
+      </a>
+      <a class="link-item" href="/faq/">
+        <div class="link-icon">❓</div>
+        <div>
+          <strong>FAQ</strong>
+          <p>Direct answers to launch, demo, and mode questions.</p>
+        </div>
+        <span class="link-badge good">Confirmed</span>
+      </a>
+    </div>
+  </section>
+</Base>
+
+<style>
+.update-timeline {
+  display: grid;
+  gap: 14px;
+}
+
+.update-entry {
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface-3);
+}
+
+.update-entry-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
+}
+
+.update-entry-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.update-date {
+  font-size: 12px;
+  color: var(--quiet);
+}
+
+.update-source-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  color: var(--accent-3);
+  white-space: nowrap;
+}
+
+.update-source-link:hover {
+  text-decoration: underline;
+}
+
+.update-summary {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.5;
+  margin-bottom: 6px;
+}
+
+.update-source-id {
+  font-size: 11px;
+  color: var(--quiet);
+}
+</style>

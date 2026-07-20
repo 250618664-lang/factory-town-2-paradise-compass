@@ -1,0 +1,179 @@
+---
+import Base from '../layouts/Base.astro';
+import NativeAdSlot from '../components/NativeAdSlot.astro';
+const lastChecked = '2026-07-12';
+
+const confirmedFacts = [
+  { fact: 'Recipe Book is an official progression mechanic', source: 'Official Steam Community post (ft2-recipe-book-001)' },
+  { fact: 'Reward Points are earned through gameplay', source: 'Official Steam Community post (ft2-recipe-book-001)' },
+  { fact: 'Volcano Rewards are part of the progression system', source: 'Official Steam Community post (ft2-recipe-book-001)' },
+  { fact: 'Recipe Book is organized into logical groups', source: 'Official Steam Community post (ft2-recipe-book-001)' },
+];
+---
+
+<Base
+  title="Recipe Book and Volcano Rewards"
+  description="What is confirmed about the Factory Town 2 Recipe Book and Volcano Reward Point concept — official progression system facts only."
+  breadcrumbs={[
+    { label: 'Home', href: '/' },
+    { label: 'Recipe Book and Volcano Rewards' },
+  ]}
+>
+  <div class="hero-grid">
+    <div class="panel hero">
+      <span class="eyebrow"><span class="dot warn"></span> PARTIAL — Evidence Boundary</span>
+      <h1>Recipe Book &amp;<br/>Volcano Rewards</h1>
+
+      <!-- V2 Quick Answer -->
+      <div class="answer-strip">
+        <div class="answer-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-3)" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+        </div>
+        <div>
+          <strong>Recipe Book concept confirmed — specific recipes not verified</strong>
+          <span>The progression system is confirmed; specific recipes, costs, and reward values are not verified for the launch version.</span>
+        </div>
+      </div>
+
+      <NativeAdSlot />
+
+      <!-- V2 ConfirmedFacts — primary structured module -->
+      <h2 style="font-size: 16px; margin-top: 20px; margin-bottom: 10px;">What Is Confirmed</h2>
+      <div class="check-list">
+        {confirmedFacts.map(f => (
+          <div class="check-item done">
+            <div class="check-num">✓</div>
+            <div class="check-text">
+              <strong>{f.fact}</strong>
+              <p>{f.source}</p>
+            </div>
+            <span class="check-badge good">Confirmed</span>
+          </div>
+        ))}
+        <div class="check-item hold">
+          <div class="check-num">?</div>
+          <div class="check-text">
+            <strong>Specific recipes or recipe groups</strong>
+            <p>Individual recipes, costs, and output values are not verified for launch here.</p>
+          </div>
+          <span class="check-badge warn">Unconfirmed</span>
+        </div>
+        <div class="check-item hold">
+          <div class="check-num">?</div>
+          <div class="check-text">
+            <strong>Volcano reward tiers or values</strong>
+            <p>Specific reward tiers, point costs, or unlock values are not verified here.</p>
+          </div>
+          <span class="check-badge warn">Unconfirmed</span>
+        </div>
+        <div class="check-item hold">
+          <div class="check-num">?</div>
+          <div class="check-text">
+            <strong>Recipe unlock prerequisites</strong>
+            <p>Research or progression requirements for unlocking recipes are not verified here.</p>
+          </div>
+          <span class="check-badge warn">Unconfirmed</span>
+        </div>
+      </div>
+
+      <div class="partial-callout" style="margin-top: 16px;">
+        <strong>This page is PARTIAL</strong>
+        <p>The Recipe Book and Reward Point concept is confirmed from official posts. Specific recipe groups, unlock prerequisites, values, and volcano reward details are playtest-sourced and not confirmed for the launch version here.</p>
+        <p style="margin-top: 6px;">Last checked: {lastChecked} · Source: official Steam Community posts (ft2-recipe-book-001)</p>
+      </div>
+    </div>
+
+    <aside class="panel side">
+      <h2>Source</h2>
+      <div class="source-card">
+        <h3>Official Source</h3>
+        <div class="source-row">
+          <strong>Claim ID</strong>
+          <span>ft2-recipe-book-001</span>
+        </div>
+        <div class="source-row">
+          <strong>Fact</strong>
+          <span>Recipe Book / Reward Point concept for progression.</span>
+        </div>
+        <div class="source-row">
+          <strong>Source</strong>
+          <span>Official Steam Community posts</span>
+        </div>
+        <div class="source-row">
+          <strong>Last checked</strong>
+          <span>{lastChecked}</span>
+        </div>
+        <div class="source-row">
+          <strong>Status</strong>
+          <span>Concept confirmed</span>
+        </div>
+      </div>
+
+      <div class="mini" style="margin-top: 14px;">
+        <h3>Playtest warning</h3>
+        <p>Recipe details seen in playtest videos or reported by early players may differ from the final launch version. Do not treat playtest information as verified launch facts.</p>
+      </div>
+
+      <div class="mini" style="margin-top: 10px;">
+        <h3>Related pages</h3>
+        <p><a href="/logistics-and-transport/" style="color: var(--accent-3);">→ Logistics &amp; Transport</a></p>
+        <p><a href="/power-and-water-systems/" style="color: var(--accent-3);">→ Power &amp; Water</a></p>
+        <p><a href="/patch-notes/" style="color: var(--accent-3);">→ Patch Notes</a></p>
+      </div>
+    </aside>
+  </div>
+
+  <!-- V2 FAQ — 4 FAQs -->
+  <section class="panel section">
+    <h2>Frequently Asked Questions</h2>
+    <div style="margin-top: 14px; display: grid; gap: 12px;">
+      <div>
+        <h3 style="font-size: 15px; margin-bottom: 4px;">What is the Recipe Book in Factory Town 2?</h3>
+        <p>The Recipe Book is an official progression mechanic confirmed from Steam Community posts. It is organized into logical groups and unlocked by spending Reward Points earned from feeding the Volcano.</p>
+      </div>
+      <div>
+        <h3 style="font-size: 15px; margin-bottom: 4px;">How do I earn Reward Points?</h3>
+        <p>Reward Points are earned through gameplay by feeding the Volcano. Specific values, thresholds, or earning rates are not confirmed on this site.</p>
+      </div>
+      <div>
+        <h3 style="font-size: 15px; margin-bottom: 4px;">Are specific recipes confirmed?</h3>
+        <p>No specific recipes, crafting costs, or output values are confirmed on this site. Only the existence of the Recipe Book as a mechanic is confirmed.</p>
+      </div>
+      <div>
+        <h3 style="font-size: 15px; margin-bottom: 4px;">Does this site have a recipe list?</h3>
+        <p>No. Recipe lists, individual recipes, costs, and output values are not verified here. Any recipe information from third-party sources should be treated as unverified until confirmed by official sources or hands-on testing.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- V2 Related Guides -->
+  <section class="panel section">
+    <h2>Related Guides</h2>
+    <div class="link-list" style="margin-top: 14px;">
+      <a class="link-item" href="/logistics-and-transport/">
+        <div class="link-icon">🚂</div>
+        <div>
+          <strong>Logistics and Transport Systems</strong>
+          <p>Confirmed transport categories.</p>
+        </div>
+        <span class="link-badge warn">Partial</span>
+      </a>
+      <a class="link-item" href="/power-and-water-systems/">
+        <div class="link-icon">⚡</div>
+        <div>
+          <strong>Power and Water Systems</strong>
+          <p>Confirmed energy and water categories.</p>
+        </div>
+        <span class="link-badge warn">Partial</span>
+      </a>
+      <a class="link-item" href="/patch-notes/">
+        <div class="link-icon">📡</div>
+        <div>
+          <strong>Patch Notes and Official Updates</strong>
+          <p>Official update timeline.</p>
+        </div>
+        <span class="link-badge good">Confirmed</span>
+      </a>
+    </div>
+  </section>
+</Base>

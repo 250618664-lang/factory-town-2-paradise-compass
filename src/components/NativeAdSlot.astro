@@ -1,0 +1,38 @@
+---
+// NativeAdSlot.astro — one approved Native Banner per page, after Quick Answer
+// Adsterra Native Banner: exact approved script and container ID
+---
+
+<aside class="ad-slot native-ad-slot" aria-label="Sponsored content">
+  <span class="ad-label">Sponsored</span>
+  <script is:inline async="async" data-cfasync="false" src="https://pl30442180.effectivecpmnetwork.com/9a7cd2e135679d13e508d2236ba4e177/invoke.js"></script>
+  <div id="container-9a7cd2e135679d13e508d2236ba4e177"></div>
+</aside>
+
+<style>
+.ad-slot {
+  width: 100%;
+  max-width: 728px;
+  margin: 0 auto;
+}
+
+.ad-label {
+  display: block;
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--quiet, #888);
+  margin-bottom: 4px;
+  text-align: center;
+}
+
+/* Native ad container — no fixed black/gray box, no large empty frame on no-fill */
+.native-ad-slot > div {
+  min-height: 1px;
+}
+
+/* Ensure injected iframe does not overflow */
+.native-ad-slot iframe {
+  max-width: 100% !important;
+}
+</style>

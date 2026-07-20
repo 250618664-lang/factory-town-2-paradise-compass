@@ -1,0 +1,185 @@
+---
+import Base from '../layouts/Base.astro';
+import NativeAdSlot from '../components/NativeAdSlot.astro';
+const lastChecked = '2026-07-20';
+
+// Post-launch first-session checklist
+const checklistItems = [
+  {
+    q: 'Verify current Steam status',
+    detail: 'Check the official Steam page directly to confirm the game is still available and what the current state is.',
+    status: 'done',
+  },
+  {
+    q: 'Download and try the demo',
+    detail: 'The official Steam demo is available. Use it to understand the game before purchasing.',
+    status: 'done',
+  },
+  {
+    q: 'Decide between Campaign and Custom Maps',
+    detail: 'Both modes are officially confirmed. Read the Campaign vs Custom Maps page to compare them.',
+    status: 'done',
+  },
+  {
+    q: 'Check PC system requirements',
+    detail: 'System requirements have not been verified on this site — check the official Steam page for the latest requirements before purchasing.',
+    status: 'hold',
+  },
+  {
+    q: 'Discover control schemes',
+    detail: 'Control schemes and keybind options are not confirmed here. Try the demo or in-game settings to discover them.',
+    status: 'hold',
+  },
+  {
+    q: 'Plan your starting approach',
+    detail: 'Specific layouts, named build strategies, and production chains are not confirmed here and are not safe to copy from third-party sources before launch.',
+    status: 'hold',
+  },
+];
+---
+
+<Base
+  title="First-Time Player Checklist"
+  description="Post-launch first-session checklist for Factory Town 2: Paradise — verified access and mode steps only, no gameplay instructions."
+  breadcrumbs={[
+    { label: 'Home', href: '/' },
+    { label: 'First-Time Player Checklist' },
+  ]}
+>
+  <div class="hero-grid">
+    <div class="panel hero">
+      <span class="eyebrow"><span class="dot warn"></span> PARTIAL — Evidence Boundary</span>
+      <h1>First-Time Player<br/>Checklist</h1>
+
+      <!-- V2 Quick Answer -->
+      <div class="answer-strip">
+        <div class="answer-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-3)" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+        </div>
+        <div>
+          <strong>Post-launch first-session checklist</strong>
+          <span>Only verified access and mode steps are included. Step-by-step gameplay instructions are not included and are not confirmed on this site.</span>
+        </div>
+      </div>
+
+      <NativeAdSlot />
+
+      <!-- V2 Checklist — primary structured module -->
+      <h2 style="font-size: 16px; margin-top: 20px; margin-bottom: 10px;">Your First Session</h2>
+      <div class="check-list">
+        {checklistItems.map(item => (
+          <div class={`check-item ${item.status}`}>
+            <div class="check-num">{item.status === 'done' ? '✓' : '?'}</div>
+            <div class="check-text">
+              <strong>{item.q}</strong>
+              <p>{item.detail}</p>
+            </div>
+            <span class={`check-badge ${item.status === 'done' ? 'good' : 'warn'}`}>
+              {item.status === 'done' ? 'Confirmed' : 'Verify first'}
+            </span>
+          </div>
+        ))}
+      </div>
+
+      <div class="partial-callout" style="margin-top: 16px;">
+        <strong>This page is PARTIAL</strong>
+        <p>This checklist contains only access and mode-verification actions supported by evidence. Step-by-step gameplay instructions and particular start advice are not included and are not confirmed on this site.</p>
+        <p style="margin-top: 6px;">Last checked: {lastChecked}</p>
+      </div>
+    </div>
+
+    <aside class="panel side">
+      <h2>Source</h2>
+      <div class="source-card">
+        <h3>Source facts used</h3>
+        <div class="source-row">
+          <strong>Release</strong>
+          <span>ft2-release-live-20260720 · July 14, 2026 — Live</span>
+        </div>
+        <div class="source-row">
+          <strong>Demo</strong>
+          <span>ft2-demo-live-20260720 · demo available</span>
+        </div>
+        <div class="source-row">
+          <strong>Modes</strong>
+          <span>ft2-progress-001 · campaign + custom</span>
+        </div>
+        <div class="source-row">
+          <strong>Last checked</strong>
+          <span>{lastChecked}</span>
+        </div>
+        <div class="source-row">
+          <strong>Status</strong>
+          <span>Partial</span>
+        </div>
+      </div>
+
+      <div class="mini" style="margin-top: 14px;">
+        <h3>Important</h3>
+        <p>No step-by-step guide, particular start strategy, or named build is confirmed on this site. Copying unverified third-party lists may lead to incorrect information.</p>
+      </div>
+
+      <div class="mini" style="margin-top: 10px;">
+        <h3>Related pages</h3>
+        <p><a href="/release-date-and-early-access/" style="color: var(--accent-3);">→ Release Status</a></p>
+        <p><a href="/campaign-vs-custom-maps/" style="color: var(--accent-3);">→ Campaign vs Custom Maps</a></p>
+        <p><a href="/logistics-and-transport/" style="color: var(--accent-3);">→ Logistics &amp; Transport</a></p>
+        <p><a href="/patch-notes/" style="color: var(--accent-3);">→ Patch Notes</a></p>
+      </div>
+    </aside>
+  </div>
+
+  <!-- V2 FAQ — 4 FAQs -->
+  <section class="panel section">
+    <h2>Frequently Asked Questions</h2>
+    <div style="margin-top: 14px; display: grid; gap: 12px;">
+      <div>
+        <h3 style="font-size: 15px; margin-bottom: 4px;">What should I do first in Factory Town 2?</h3>
+        <p>Confirm the current state on Steam, try the demo, and decide between Campaign and Custom Maps based on your preference. Specific first steps, build orders, or production sequences are not confirmed on this site.</p>
+      </div>
+      <div>
+        <h3 style="font-size: 15px; margin-bottom: 4px;">Should I start with Campaign or Custom Maps?</h3>
+        <p>This site does not recommend a starting mode. Campaign offers guided progression; Custom Maps offer randomized challenges. Try the demo to decide.</p>
+      </div>
+      <div>
+        <h3 style="font-size: 15px; margin-bottom: 4px;">Can I trust third-party beginner guides?</h3>
+        <p>No specific layout, specific start strategies, or ranked build is confirmed on this site. Third-party lists may be outdated, incorrect for the current version, or based on early playtest information.</p>
+      </div>
+      <div>
+        <h3 style="font-size: 15px; margin-bottom: 4px;">Where can I find official updates?</h3>
+        <p>Official updates are on the <a href="https://steamcommunity.com/app/3312130/?curator_clanid=4777282" target="_blank" rel="noopener">Steam Community update hub</a>. The <a href="/patch-notes/">Patch Notes page</a> tracks concise verified summaries.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- V2 Related Guides -->
+  <section class="panel section">
+    <h2>Related Guides</h2>
+    <div class="link-list" style="margin-top: 14px;">
+      <a class="link-item" href="/campaign-vs-custom-maps/">
+        <div class="link-icon">🗺️</div>
+        <div>
+          <strong>Campaign vs Custom Maps</strong>
+          <p>Compare the two confirmed game modes.</p>
+        </div>
+        <span class="link-badge warn">Partial</span>
+      </a>
+      <a class="link-item" href="/logistics-and-transport/">
+        <div class="link-icon">🚂</div>
+        <div>
+          <strong>Logistics and Transport Systems</strong>
+          <p>Confirmed transport categories.</p>
+        </div>
+        <span class="link-badge warn">Partial</span>
+      </a>
+      <a class="link-item" href="/patch-notes/">
+        <div class="link-icon">📡</div>
+        <div>
+          <strong>Patch Notes and Official Updates</strong>
+          <p>Official update timeline.</p>
+        </div>
+        <span class="link-badge good">Confirmed</span>
+      </a>
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,215 @@
+---
+import Base from '../layouts/Base.astro';
+import { SITE, ENABLED_ROUTES } from '../data/site';
+import NativeAdSlot from '../components/NativeAdSlot.astro';
+
+// Ordered for GSC signal priority: logistics (A page) first, then release, updates, demo
+const priorityOrder = ['logistics', 'release', 'patch-notes', 'demo', 'checklist', 'power', 'recipes', 'campaign', 'faq'] as const;
+
+const coreRoutes = priorityOrder
+  .map(slug => ENABLED_ROUTES.find(r => r.slug === slug))
+  .filter((r): r is typeof ENABLED_ROUTES[number] => r !== undefined);
+
+const latestUpdates = [
+  { version: 'Patch 129', date: '2026-07-18', href: '/patch-notes/' },
+  { version: 'Patch 128', date: '2026-07-17', href: '/patch-notes/' },
+  { version: 'Patch 127', date: '2026-07-14', href: '/patch-notes/' },
+];
+---
+
+<Base
+  title=""
+  description="Unofficial Factory Town 2: Paradise guide hub — verified Early Access facts, official updates, confirmed systems, and player tools."
+>
+  <div class="hero-grid">
+    <div class="panel hero">
+      <span class="eyebrow"><span class="dot"></span> {SITE.gameName} — PC · Early Access Live</span>
+      <h1>Factory Town 2<br/>Player Guide Hub</h1>
+      <p class="lead">Verified Early Access facts, official updates, and confirmed game systems. No invented recipes, layouts, or gameplay guide content. Last reviewed: {SITE.lastChecked}.</p>
+
+      <!-- V2 Quick Answer strip -->
+      <div class="answer-strip" style="margin-top: 16px;">
+        <div class="answer-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-3)" stroke-width="2"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-.18-5.49"/></svg>
+        </div>
+        <div>
+          <strong>Factory Town 2 is live on Steam Early Access (July 14, 2026)</strong>
+          <span>This is an unofficial guide hub — facts are sourced from official Steam and Steam Community posts only.</span>
+        </div>
+      </div>
+
+      <NativeAdSlot />
+
+      <!-- V2 Task grid — Guide Hub routing -->
+      <div class="task-grid">
+        <a class="task-card" href="/release-date-and-early-access/">
+          <div class="card-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          </div>
+          <h3>Release Status</h3>
+          <p>Early Access is live — confirmed launch date and current availability.</p>
+        </a>
+        <a class="task-card" href="/logistics-and-transport/">
+          <div class="card-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+          </div>
+          <h3>Logistics &amp; Transport</h3>
+          <p>Understand confirmed transport categories — roads, trains, belts, boats and more.</p>
+        </a>
+        <a class="task-card" href="/patch-notes/">
+          <div class="card-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-.18-5.49"/></svg>
+          </div>
+          <h3>Patch Notes</h3>
+          <p>Track verified official updates from the Steam Community hub — Patch 129 is the latest entry checked.</p>
+        </a>
+        <a class="task-card" href="/demo-guide/">
+          <div class="card-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          </div>
+          <h3>Demo Guide</h3>
+          <p>Demo is available — what is confirmed and what requires hands-on verification.</p>
+        </a>
+        <a class="task-card" href="/power-and-water-systems/">
+          <div class="card-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          </div>
+          <h3>Power &amp; Water</h3>
+          <p>Confirmed energy and water system categories — no ratios or wiring routes.</p>
+        </a>
+        <a class="task-card" href="/faq/">
+          <div class="card-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          </div>
+          <h3>FAQ</h3>
+          <p>Direct answers to launch, demo, mode and system questions — sourced or marked unconfirmed.</p>
+        </a>
+      </div>
+    </div>
+
+    <aside class="panel side">
+      <h2>What Is Confirmed</h2>
+
+      <div class="status-grid">
+        <div class="status-card good">
+          <h3>Launch Date</h3>
+          <p>Steam Early Access: July 14, 2026 — live now.</p>
+        </div>
+        <div class="status-card good">
+          <h3>Demo</h3>
+          <p>Steam demo is available — confirmed from official Steam listing.</p>
+        </div>
+        <div class="status-card good">
+          <h3>Campaign + Custom Maps</h3>
+          <p>Guided tutorial plus custom maps with randomized terrain and resources.</p>
+        </div>
+        <div class="status-card good">
+          <h3>Transport Systems</h3>
+          <p>Roads, bridges, trains, belts, boats, catapults, zip lines — from official description.</p>
+        </div>
+        <div class="status-card good">
+          <h3>Power &amp; Water</h3>
+          <p>Water, waterwheels, windmills, drive shafts, generators, power lines — from official description.</p>
+        </div>
+        <div class="status-card warn">
+          <h3>Recipe Book</h3>
+          <p>Concept confirmed; specific recipes, costs and values are not verified.</p>
+        </div>
+      </div>
+
+      <div style="height: 1px; background: var(--line); margin: 4px 0;"></div>
+
+      <!-- V2 Latest Updates section -->
+      <div class="mini">
+        <h3>Latest Official Updates</h3>
+        {latestUpdates.map(u => (
+          <p style="display: flex; justify-content: space-between; gap: 8px; margin-bottom: 4px;">
+            <a href={u.href} style="color: var(--accent-3); font-size: 12px;">{u.version}</a>
+            <span style="font-size: 11px; color: var(--quiet);">{u.date}</span>
+          </p>
+        ))}
+        <p style="margin-top: 6px;"><a href="/patch-notes/" style="color: var(--accent-3); font-size: 12px;">→ All patch notes</a></p>
+      </div>
+
+      <div class="mini" style="margin-top: 10px;">
+        <h3>Quick Links</h3>
+        <p><a href="/release-date-and-early-access/" style="color: var(--accent-3);">→ Release status</a></p>
+        <p><a href="/demo-guide/" style="color: var(--accent-3);">→ Demo guide</a></p>
+        <p><a href="/campaign-vs-custom-maps/" style="color: var(--accent-3);">→ Campaign vs Custom Maps</a></p>
+        <p><a href="/logistics-and-transport/" style="color: var(--accent-3);">→ Logistics &amp; Transport</a></p>
+        <p><a href="/faq/" style="color: var(--accent-3);">→ FAQ</a></p>
+      </div>
+    </aside>
+  </div>
+
+  <!-- V2 Popular Guides — ordered by GSC signal -->
+  <section class="panel section">
+    <div class="section-head">
+      <div>
+        <h2>All Guides</h2>
+        <p>Every page is backed by official sources. PARTIAL pages clearly label their evidence boundary.</p>
+      </div>
+      <span class="pill">{ENABLED_ROUTES.length} pages</span>
+    </div>
+
+    <div class="link-list">
+      {coreRoutes.map(route => (
+        <a class="link-item" href={route.canonical}>
+          <div class="link-icon">{
+            route.slug === 'release' ? '📅' :
+            route.slug === 'logistics' ? '🚂' :
+            route.slug === 'patch-notes' ? '📡' :
+            route.slug === 'demo' ? '▶️' :
+            route.slug === 'power' ? '⚡' :
+            route.slug === 'faq' ? '❓' :
+            route.slug === 'checklist' ? '✅' :
+            route.slug === 'campaign' ? '🗺️' :
+            route.slug === 'recipes' ? '📖' : '📄'
+          }</div>
+          <div>
+            <strong>{route.title}</strong>
+            <p>{route.responsibility}</p>
+          </div>
+          <span class={`link-badge ${route.evidenceState === 'confirmed' ? 'good' : 'warn'}`}>
+            {route.evidenceState === 'confirmed' ? 'Confirmed' : 'Partial'}
+          </span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <!-- V2 Sources & Trust section -->
+  <section class="panel section">
+    <h2>Sources &amp; Editorial Policy</h2>
+    <div class="can-cannot" style="margin-top: 14px;">
+      <div class="cannot-card">
+        <h3>✗ Not published on this site</h3>
+        <ul>
+          <li>Exact recipes, costs, or production values</li>
+          <li>Named layouts, specific build strategies, or ranked tier lists</li>
+          <li>Control schemes or keybind details without official source</li>
+          <li>Map routes, coordinates, or hidden locations</li>
+          <li>Active codes or promotional offers</li>
+          <li>Screenshots, images, or media from third parties</li>
+        </ul>
+      </div>
+      <div class="can-card">
+        <h3>✓ Published from official sources</h3>
+        <ul>
+          <li>Steam Early Access launch date: July 14, 2026</li>
+          <li>Steam demo is available</li>
+          <li>Campaign includes guided tutorial</li>
+          <li>Custom maps have randomized terrain and resources</li>
+          <li>Transport: roads, bridges, trains, belts, boats, catapults, zip lines</li>
+          <li>Power &amp; water: water, waterwheels, windmills, drive shafts, generators, power lines</li>
+          <li>Recipe Book is an official progression concept</li>
+          <li>Official updates from Steam Community posts only</li>
+        </ul>
+      </div>
+    </div>
+    <p style="margin-top: 14px; font-size: 12px; color: var(--quiet);">
+      This site is an unofficial player helper, not affiliated with Erik Asmussen or Factory Town 2: Paradise developers.
+      Last content review: {SITE.lastChecked}.
+    </p>
+  </section>
+</Base>

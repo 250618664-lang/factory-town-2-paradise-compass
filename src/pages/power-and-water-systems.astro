@@ -1,0 +1,173 @@
+---
+import Base from '../layouts/Base.astro';
+import NativeAdSlot from '../components/NativeAdSlot.astro';
+const lastChecked = '2026-07-12';
+
+const systems = [
+  { name: 'Water', type: 'Resource / System', note: 'Confirmed category from official description.' },
+  { name: 'Waterwheels', type: 'Power generation', note: 'Confirmed category from official description.' },
+  { name: 'Windmills', type: 'Power generation', note: 'Confirmed category from official description.' },
+  { name: 'Drive Shafts', type: 'Power transmission', note: 'Confirmed category from official description.' },
+  { name: 'Generators', type: 'Power source', note: 'Confirmed category from official description.' },
+  { name: 'Power Lines', type: 'Power distribution', note: 'Confirmed category from official description.' },
+];
+---
+
+<Base
+  title="Power and Water Systems: What Is Confirmed"
+  description="Confirmed Factory Town 2 power and water system categories — water, waterwheels, windmills, drive shafts, generators, power lines."
+  breadcrumbs={[
+    { label: 'Home', href: '/' },
+    { label: 'Power and Water Systems: What Is Confirmed' },
+  ]}
+>
+  <div class="hero-grid">
+    <div class="panel hero">
+      <span class="eyebrow"><span class="dot warn"></span> PARTIAL — Evidence Boundary</span>
+      <h1>Power and Water<br/>Systems</h1>
+
+      <!-- V2 Quick Answer -->
+      <div class="answer-strip">
+        <div class="answer-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-3)" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        </div>
+        <div>
+          <strong>6 confirmed power/water categories</strong>
+          <span>Water, waterwheels, windmills, drive shafts, generators, power lines — no ratios, wiring routes, or output values are confirmed.</span>
+        </div>
+      </div>
+
+      <NativeAdSlot />
+
+      <!-- V2 DataTable — primary structured module -->
+      <h2 style="font-size: 16px; margin-top: 20px; margin-bottom: 10px;">Confirmed System Categories</h2>
+      <table class="matrix-table">
+        <thead>
+          <tr>
+            <th>System</th>
+            <th>Type</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          {systems.map(s => (
+            <tr>
+              <td><strong>{s.name}</strong></td>
+              <td>{s.type}</td>
+              <td><span class="status-badge confirmed">Confirmed</span></td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+
+      <div class="partial-callout" style="margin-top: 16px;">
+        <strong>This page is PARTIAL</strong>
+        <p>Only the existence of these power and water categories is confirmed from official sources. Specific mechanics, ratios, wiring routes, reservoir sizes, power output, or particular configurations are not verified here.</p>
+        <p style="margin-top: 6px;">Last checked: {lastChecked} · Source: store.steampowered.com (ft2-power-water-001)</p>
+      </div>
+    </div>
+
+    <aside class="panel side">
+      <h2>Source</h2>
+      <div class="source-card">
+        <h3>Official Source</h3>
+        <div class="source-row">
+          <strong>Claim ID</strong>
+          <span>ft2-power-water-001</span>
+        </div>
+        <div class="source-row">
+          <strong>Fact</strong>
+          <span>6 system categories confirmed: water, waterwheels, windmills, drive shafts, generators, power lines.</span>
+        </div>
+        <div class="source-row">
+          <strong>Source</strong>
+          <span>store.steampowered.com</span>
+        </div>
+        <div class="source-row">
+          <strong>Last checked</strong>
+          <span>{lastChecked}</span>
+        </div>
+        <div class="source-row">
+          <strong>Status</strong>
+          <span>Confirmed category only</span>
+        </div>
+      </div>
+
+      <div class="mini" style="margin-top: 14px;">
+        <h3>What is not confirmed</h3>
+        <p>Power ratios, water flow rates, generator output, wiring routes, reservoir sizes, named power layouts, and build costs are not verified here.</p>
+        <p style="margin-top: 6px;">These details vary in playtest reports and are not guaranteed for the launch version.</p>
+      </div>
+
+      <div class="mini" style="margin-top: 10px;">
+        <h3>Related pages</h3>
+        <p><a href="/logistics-and-transport/" style="color: var(--accent-3);">→ Logistics &amp; Transport</a></p>
+        <p><a href="/recipe-book-and-volcano-rewards/" style="color: var(--accent-3);">→ Recipe Book</a></p>
+        <p><a href="/faq/" style="color: var(--accent-3);">→ FAQ</a></p>
+        <p><a href="/patch-notes/" style="color: var(--accent-3);">→ Patch Notes</a></p>
+      </div>
+    </aside>
+  </div>
+
+  <!-- V2 FAQ — 4 FAQs -->
+  <section class="panel section">
+    <h2>Frequently Asked Questions</h2>
+    <div style="margin-top: 14px; display: grid; gap: 12px;">
+      <div>
+        <h3 style="font-size: 15px; margin-bottom: 4px;">Can I use water to power my factory?</h3>
+        <p>Water is listed as a confirmed system category alongside waterwheels and generators, suggesting power generation is part of the system. Specific mechanics are not confirmed here.</p>
+      </div>
+      <div>
+        <h3 style="font-size: 15px; margin-bottom: 4px;">Which power source should I use?</h3>
+        <p>No particular power source, specific configuration, or ranked list is confirmed on this site. This decision depends on unconfirmed launch mechanics.</p>
+      </div>
+      <div>
+        <h3 style="font-size: 15px; margin-bottom: 4px;">Are power and water systems separate?</h3>
+        <p>Both are confirmed as separate system categories in the official description. Whether they interact and how is not confirmed here.</p>
+      </div>
+      <div>
+        <h3 style="font-size: 15px; margin-bottom: 4px;">Do windmills require water?</h3>
+        <p>Whether windmills depend on water or any other system for operation is not confirmed here.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- V2 Related Guides — 4 -->
+  <section class="panel section">
+    <h2>Related Guides</h2>
+    <div class="link-list" style="margin-top: 14px;">
+      <a class="link-item" href="/logistics-and-transport/">
+        <div class="link-icon">🚂</div>
+        <div>
+          <strong>Logistics and Transport Systems</strong>
+          <p>Confirmed transport categories and decision checklist.</p>
+        </div>
+        <span class="link-badge warn">Partial</span>
+      </a>
+      <a class="link-item" href="/recipe-book-and-volcano-rewards/">
+        <div class="link-icon">📖</div>
+        <div>
+          <strong>Recipe Book &amp; Volcano Rewards</strong>
+          <p>Recipe Book and Reward Point concept.</p>
+        </div>
+        <span class="link-badge warn">Partial</span>
+      </a>
+      <a class="link-item" href="/patch-notes/">
+        <div class="link-icon">📡</div>
+        <div>
+          <strong>Patch Notes and Official Updates</strong>
+          <p>Verified update timeline linked to the official Steam update hub.</p>
+        </div>
+        <span class="link-badge good">Confirmed</span>
+      </a>
+      <a class="link-item" href="/faq/">
+        <div class="link-icon">❓</div>
+        <div>
+          <strong>FAQ</strong>
+          <p>Direct answers to launch and system questions.</p>
+        </div>
+        <span class="link-badge good">Confirmed</span>
+      </a>
+    </div>
+  </section>
+</Base>

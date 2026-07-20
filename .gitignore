@@ -1,0 +1,41 @@
+# Build output
+dist/
+.astro/
+
+# Dependencies
+node_modules/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+
+# Environment
+.env
+.env.local
+.env.*.local
+.vercel/
+
+# TypeScript
+*.tsbuildinfo
+
+# Public repository isolation: retain only README.md among root documentation.
+# Runtime registries under src/data/ remain tracked because these rules are root-relative.
+/data/
+/research/
+/runs/
+/docs/
+/.agents/
+/templates/
+/sites/
+/AGENTS.md
+/CLAUDE.md
+/PROJECT_STATUS.md
+/LEARNINGS.md
+/*.md
+!README.md
+/*.csv
+/screenshot-*.png

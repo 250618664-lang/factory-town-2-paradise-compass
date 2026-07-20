@@ -1,0 +1,167 @@
+---
+import '../styles/global.css';
+import { SITE, NAV, getRoute } from '../data/site';
+
+interface Props {
+  title?: string;
+  description?: string;
+  canonical?: string;
+  noindex?: boolean;
+  // Breadcrumb items: [{ label, href? }] — href omitted means current page
+  breadcrumbs?: Array<{ label: string; href?: string }>;
+  // For JSON-LD WebPage
+  pagePath?: string;
+}
+
+const {
+  title,
+  description = SITE.description,
+  canonical,
+  noindex = false,
+  breadcrumbs = [],
+} = Astro.props;
+
+const pageTitle = title ? `${title} | ${SITE.title}` : SITE.title;
+const canonicalUrl = canonical ? new URL(canonical, Astro.site) : Astro.url;
+
+// Resolve current route for cluster/label info
+const currentRoute = getRoute(
+  Astro.url.pathname.replace(/\//g, '').replace('release-date-and-early-access', 'release')
+    .replace('campaign-vs-custom-maps', 'campaign')
+    .replace('getting-started-checklist', 'checklist')
+    .replace('logistics-and-transport', 'logistics')
+    .replace('power-and-water-systems', 'power')
+    .replace('recipe-book-and-volcano-rewards', 'recipes')
+    .replace('patch-notes', 'patch-notes')
+    .replace('faq', 'faq') || 'home'
+);
+
+// Build breadcrumb items from prop array
+const breadcrumbItems = breadcrumbs.length > 0
+  ? breadcrumbs
+  : currentRoute && Astro.url.pathname !== '/'
+    ? [{ label: 'Home', href: '/' }, { label: currentRoute.title }]
+    : [{ label: 'Home' }];
+
+// WebPage JSON-LD
+const webPageJsonLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: pageTitle,
+  description,
+  url: canonicalUrl.toString(),
+  isPartOf: {
+    '@type': 'WebSite',
+    name: SITE.title,
+    url: Astro.site?.toString() ?? 'https://ft2paradiseguide.com',
+  },
+  about: {
+    '@type': 'VideoGame',
+    name: SITE.gameName,
+    gamePlatform: SITE.platform,
+  },
+  publisher: {
+    '@type': 'WebSite',
+    name: SITE.title,
+  },
+});
+
+// BreadcrumbList JSON-LD (only when breadcrumbs exist beyond home)
+const breadcrumbJsonLd = breadcrumbItems.length > 1
+  ? JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: breadcrumbItems.map((item, i) => ({
+        '@type': 'ListItem',
+        position: i + 1,
+        name: item.label,
+        ...(item.href ? { item: new URL(item.href, Astro.site).toString() } : {}),
+      })),
+    })
+  : null;
+---
+
+<!doctype html>
+<html lang="en" data-theme={SITE.theme}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex" />}
+    <link rel="canonical" href={canonicalUrl} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:site_name" content={SITE.title} />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={description} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <!-- CSS-only favicon: factory gear on fern-green -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%233E705C'/><circle cx='50' cy='50' r='18' fill='none' stroke='%23F7F2E7' stroke-width='8'/><line x1='50' y1='24' x2='50' y2='36' stroke='%23F7F2E7' stroke-width='8' stroke-linecap='round'/><line x1='50' y1='64' x2='50' y2='76' stroke='%23F7F2E7' stroke-width='8' stroke-linecap='round'/><line x1='24' y1='50' x2='36' y2='50' stroke='%23F7F2E7' stroke-width='8' stroke-linecap='round'/><line x1='64' y1='50' x2='76' y2='50' stroke='%23F7F2E7' stroke-width='8' stroke-linecap='round'/></svg>" />
+    <script is:inline type="application/ld+json" set:html={webPageJsonLd} />
+    {breadcrumbJsonLd && <script is:inline type="application/ld+json" set:html={breadcrumbJsonLd} />}
+  </head>
+  <body>
+    <a class="skip-link" href="#content">Skip to content</a>
+    <header class="topbar">
+      <div class="topbar-inner">
+        <a class="brand" href="/">
+          <span class="mark" aria-hidden="true"></span>
+          <span class="brand-text">
+            <strong>{SITE.gameName} Compass</strong>
+            <span>Unofficial · Last checked {SITE.lastChecked}</span>
+          </span>
+        </a>
+        <nav class="nav" aria-label="Primary navigation">
+          {NAV.map(item => (
+            <a
+              href={item.url}
+              class={Astro.url.pathname === item.url ? 'active' : ''}
+            >
+              {item.label}
+            </a>
+          ))}
+        </nav>
+      </div>
+    </header>
+
+    {/* Breadcrumb bar — only shown when there are breadcrumbs beyond home */}
+    {breadcrumbItems.length > 1 && (
+      <div class="breadcrumb-bar">
+        <div class="shell">
+          <nav aria-label="Breadcrumb">
+            <ol class="breadcrumb">
+              {breadcrumbItems.map((crumb, i) => (
+                <li>
+                  {crumb.href ? (
+                    <a href={crumb.href}>{crumb.label}</a>
+                  ) : (
+                    <span aria-current="page">{crumb.label}</span>
+                  )}
+                  {i < breadcrumbItems.length - 1 && <span class="sep" aria-hidden="true">›</span>}
+                </li>
+              ))}
+            </ol>
+          </nav>
+        </div>
+      </div>
+    )}
+
+    <main id="content" class="shell">
+      <slot />
+    </main>
+
+    <footer class="shell" style="padding-top: 0; padding-bottom: 32px;">
+      <p class="footer-note">
+        <strong>{SITE.title}</strong> is an unofficial player helper, not affiliated with the developers of Factory Town 2: Paradise.<br />
+        All game facts come from publicly available official sources. No images or first-party analytics are used.<br />
+        This site is a post-launch Early Access guide hub and contains one labeled sponsored Native Banner per page.<br />
+        The advertising provider may process network/device information and cookies or similar technologies for ad delivery, fraud prevention and measurement.<br />
+        Last content review: {SITE.lastChecked}.
+      </p>
+    </footer>
+  </body>
+</html>
